@@ -9,3 +9,8 @@ class Item(models.Model):
     first_record_date = models.DateTimeField(auto_now_add=True, verbose_name=_("first record date"))
     last_charge_date = models.DateTimeField(auto_now_add=True, verbose_name=_("last charge date"))
     description = models.TextField(blank=True, null=True, verbose_name=_("description"))
+
+
+class Transaction(models.Model):
+    TRANSACTION_TYPES = (("TAX", "tax"), ("OUT", "outcome"), ("SLR", "salary"), ("IN", "income"))
+    transaction_type: str = models.CharField(choices=TRANSACTION_TYPES, verbose_name=_("transaction type"))
