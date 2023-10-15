@@ -10,7 +10,10 @@ class Item(models.Model):
     last_charge_date = models.DateTimeField(auto_now_add=True, verbose_name=_("last charge date"))
     description = models.TextField(blank=True, null=True, verbose_name=_("description"))
 
+    def __str__(self):
+        return self.name
 
-class Transaction(models.Model):
-    TRANSACTION_TYPES = (("TAX", "tax"), ("OUT", "outcome"), ("SLR", "salary"), ("IN", "income"))
-    transaction_type: str = models.CharField(choices=TRANSACTION_TYPES, verbose_name=_("transaction type"))
+
+# class Transaction(models.Model):
+#     TRANSACTION_TYPES = (("TAX", "tax"), ("OUT", "outcome"), ("SLR", "salary"), ("IN", "income"))
+#     transaction_type: str = models.CharField(choices=TRANSACTION_TYPES, verbose_name=_("transaction type"))
